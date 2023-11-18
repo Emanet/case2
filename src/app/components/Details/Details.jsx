@@ -1,9 +1,11 @@
 // DetailPage.js
 import { FetchArtworkDetails } from '@/app/api/services/Artwork';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useNavigate,useParams } from "react-router-dom"
+
 
 function DetailPage() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [artworkDetails, setArtworkDetails] = useState(null);
 
@@ -11,19 +13,16 @@ function DetailPage() {
     FetchArtworkDetails({ id }).then((data) => {
       setArtworkDetails(data);
     });
-
   }, [id]);
 
   if (!artworkDetails) {
     return <div>Loading...</div>;
-
   }
 
-  console.log(artworkDetails.data.dimensions_detail[0]
-    , "artwokasd");
+
 
   return (
-    <div>
+    <div className='block w-80 p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700'>
       <span>
         {artworkDetails.data.title}
       </span>
@@ -50,6 +49,7 @@ function DetailPage() {
         Place of Origin:
         {artworkDetails.data.place_of_origin}
       </span>
+      <button onClick={() => navigate(-1)}>Go Back</button>
     </div>
   );
 }
