@@ -2,9 +2,9 @@ import React from 'react'
 
 const PaginationButtons = ({ onNext, onPrevious }) => {
   return (
-    <div>
-      <button onClick={onPrevious}>Previous</button>
-      <button onClick={onNext}>Next</button>
+    <div className='pl-40'>
+      <button className='pr-20' onClick={onPrevious}>Previous Page</button>
+      <button onClick={onNext}>Next Page</button>
     </div>
   );
 };
