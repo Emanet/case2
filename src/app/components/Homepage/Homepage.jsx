@@ -1,7 +1,9 @@
-import { FetchArtwork } from '@/app/api/services/Artwork'
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import { FetchArtwork } from '@/app/api/services/Artwork'
 import PaginationButtons from '../Button/Button'
+import DetailPage from '../Details/Details';
 
 
 function Homepage() {
@@ -39,10 +41,10 @@ function Homepage() {
                         {
                             item.data.map((art) => (
                                 <div key={art.image_id}>
-                                    <span>
-                                        {art.title}
-                                    </span>
-                                    <img src={`https://www.artic.edu/iiif/2/${art.image_id}/full/1686,/0/default.jpg`} width={60} height={60} alt="" srcset="" />
+                                    <Link to={`/${art.id}`}>
+                                        <span>{art.title}</span>
+                                        <img src={`https://www.artic.edu/iiif/2/${art.image_id}/full/1686,/0/default.jpg`} width={60} height={60} alt="" />
+                                    </Link>
                                 </div>
                             ))
                         }

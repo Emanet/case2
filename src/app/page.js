@@ -1,10 +1,16 @@
 "use client"
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import DetailPage from './components/Details/Details'
 import Homepage from './components/Homepage/Homepage'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Homepage />
-    </main>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" exact element={<Homepage />} />
+        <Route path="/:id" element={<DetailPage />} />
+      </Routes>
+    </Router>
+  );
+
 }
