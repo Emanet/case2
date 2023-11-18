@@ -3,7 +3,6 @@ import React from 'react'
 
 function SearchFilter({ onSearch, searchTerm }) {
     const handleSearch = (e) => {
-        console.log(e.target.value);
         onSearch(e.target.value);
     };
 

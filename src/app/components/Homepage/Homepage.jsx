@@ -14,7 +14,6 @@ function Homepage({
     setSearchTerm
 }) {
     const [artWorks, setArtworks] = useState(null);
-    console.log('searchTerm', searchTerm);
 
     useEffect(() => {
         if (searchTerm) {
@@ -48,7 +47,6 @@ function Homepage({
             <SearchFilter  searchTerm={searchTerm} onSearch={setSearchTerm} />
             </div>
             <div className='sm:grid-rows-1 grid lg:grid-rows-3 grid-flow-col gap-4 justify-center m-8' >
-                {console.log(artWorks)}
                 {
                     artWorks && artWorks?.map((art, index) => (
 
