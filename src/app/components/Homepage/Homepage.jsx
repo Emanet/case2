@@ -1,9 +1,7 @@
 import React from 'react'
 import { useEffect, useState, useMemo } from 'react'
 import { Link } from 'react-router-dom';
-import { FetchArtwork } from '@/app/api/services/Artwork'
 import PaginationButtons from '../Button/Button'
-import DetailPage from '../Details/Details';
 import SearchFilter from '../Search/Search';
 import endpoints from '../../api/endpoints'
 
@@ -26,9 +24,6 @@ function Homepage({
             });
         }
     }, [currentPage, searchTerm])
-
-
-    // TODO: it should work with a debounce
 
 
     const handleNext = () => {
